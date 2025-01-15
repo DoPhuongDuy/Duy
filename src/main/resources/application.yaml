@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: ${APPLICATION_NAME:judging}
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://${DATABASE_HOST:localhost}:${DATABASE_PORT:5432}/${DATABASE_DBNAME:judgingapp}}
+    username: ${DATABASE_USERNAME:postgres}
+    password: ${DATABASE_PASSWORD:1}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none # options: none, validate, update, create, create-drop
+    show-sql: false
+  liquibase:
+    change-log: classpath:db/master-changelog.xml
+server:
+  port: 8080
+api:
+  prefix: api/v1
+jwt:
+  expiration: 86400   #1day = 1*24*60*60
+  secretkey: U29tZVZhbGlkQ2hhcmFjdGVySG9sZGVyW0FsaWdlMjYwMTJGb3JQZXJpbmY=

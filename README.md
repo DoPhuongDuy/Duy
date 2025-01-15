@@ -1,2 +1,0 @@
-# Duy
-BaiTap
